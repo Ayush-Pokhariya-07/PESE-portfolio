@@ -1,0 +1,441 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    /* Clean & Modern Palette */
+    --bg: #69a7ce; /* Very light aqua background */ /* :contentReference[oaicite:6]{index=6} */
+    --surface: #feffff; /* Pure white cards & sections */ /* :contentReference[oaicite:7]{index=7} */
+    --text: black; /* Dark slate text for readability */ /* :contentReference[oaicite:8]{index=8} */
+    --accent1: #2b7a78; /* Deep teal primary accent */ /* :contentReference[oaicite:9]{index=9} */
+    --accent2: #def2f1; /* Light aqua secondary accent */ /* :contentReference[oaicite:10]{index=10} */
+    --shadow: rgba(23, 37, 42, 0.1);
+    --radius: 12px; /* Gentle rounding on UI elements */ /* :contentReference[oaicite:12]{index=12} */
+    --transition: 0.3s; /* Snappy but smooth transitions */ /* :contentReference[oaicite:13]{index=13} */
+}
+
+/* Apply to the body */
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    overflow-x: hidden;
+}
+
+/* Card and Video Item Styles */
+.card,
+.video-item {
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+.card:hover,
+.video-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px var(--shadow);
+}
+
+/* Button Styles */
+.btn {
+    background: var(--accent1);
+    color: var(--surface);
+    border-radius: var(--radius);
+    padding: 0.75rem 1.5rem;
+    transition: background var(--transition), transform var(--transition);
+}
+.btn:hover {
+    background: var(--accent2);
+    transform: scale(1.05);
+}
+
+/* Headings and Links */
+h2,
+nav a {
+    color: var(--text);
+}
+nav a:hover {
+    color: var(--accent1);
+}
+
+/* Section Background Override */
+section {
+    background: var(--surface);
+    padding: 3rem 1rem;
+    margin-bottom: 2rem;
+    border-radius: var(--radius);
+}
+
+/* Remove heavy animations and shapes */
+.shape,
+.float {
+    display: none;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== Animated Background Shapes ===== */
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) translateX(10px) rotate(45deg);
+    }
+    100% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+}
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--accent1);
+    opacity: 0.2;
+    animation: float 8s ease-in-out infinite;
+}
+.shape:nth-child(1) {
+    width: 200px;
+    height: 200px;
+    top: -50px;
+    left: -50px;
+    animation-duration: 10s;
+}
+.shape:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    bottom: -100px;
+    right: -100px;
+    animation-duration: 12s;
+}
+
+/* ===== Animations ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 0.8s forwards;
+}
+.slide-in {
+    opacity: 0;
+    animation: slideIn 0.6s forwards;
+}
+.zoom-in {
+    opacity: 0;
+    animation: zoomIn 0.6s forwards;
+}
+.delay-1 {
+    animation-delay: 0.3s;
+}
+.delay-2 {
+    animation-delay: 0.6s;
+}
+.delay-3 {
+    animation-delay: 0.9s;
+}
+.delay-4 {
+    animation-delay: 1.2s;
+}
+.delay-5 {
+    animation-delay: 1.5s;
+}
+.delay-6 {
+    animation-delay: 1.8s;
+}
+.delay-7 {
+    animation-delay: 2.1s;
+}
+.delay-8 {
+    animation-delay: 2.4s;
+}
+.delay-9 {
+    animation-delay: 2.7s;
+}
+
+/* ===== Glassmorphic Card ===== */
+.card,
+.video-item,
+.about-image img {
+    background: var(--card-bg);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    background-color: #75a2be;
+}
+
+.card:hover,
+.video-item:hover {
+    box-shadow: 0 0 20px var(--accent-glow);
+    transform: translateY(-8px) scale(1.02);
+}
+
+/* ===== Navigation ===== */
+nav {
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 35px;
+    background: rgba(42, 90, 141, 0.55);
+    padding: 1rem;
+    position: sticky;
+    top: 5px;
+    z-index: 100;
+    backdrop-filter: blur(6px);
+}
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+}
+nav a {
+    color: black;
+    color: var(--text);
+    text-decoration: none;
+    font-size: large;
+    font-weight: bold;
+    position: relative;
+    transition: color var(--transition);
+}
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 5px;
+    background: var(--accent2);
+    left: 0;
+    bottom: -6px;
+    transition: width var(--transition);
+}
+nav a:hover {
+    color: var(--accent2);
+}
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ===== Hero ===== */
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 75vh;
+    text-align: center;
+    padding: 2rem;
+    overflow: hidden;
+}
+.hero-content {
+    max-width: 600px;
+    z-index: 2;
+}
+.profile-pic {
+    width: 280px;
+    height: 300px;
+    border-radius: 50%;
+    border: 2px solid #06293541;
+    box-shadow: 0px 0px 30px #b8d6ea;
+    margin: auto;
+    display: block;
+}
+.name {
+    color: #feffff;
+    font-size: xxx-large;
+}
+.intro {
+    margin: 1rem 0;
+    font-size: 1.1rem;
+}
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: #fff;
+    color: var(--text);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: bold;
+}
+.btn:hover {
+    background-color: rgba(42, 90, 141, 0.55);
+    color: white;
+    box-shadow: 0px 0px 5px white;
+}
+
+/* ===== Sections ===== */
+section {
+    padding: 4rem 1rem;
+    position: relative;
+    z-index: 2;
+}
+.container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* ===== About ===== */
+.about {
+    background: none;
+}
+.about h2 {
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+.about .container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.about-text p {
+    font-size: large;
+    margin-bottom: 10px;
+}
+@media (min-width: 768px) {
+    .about .container {
+        flex-direction: row;
+        align-items: center;
+    }
+    .about-text,
+    .about-image {
+        flex: 1;
+    }
+}
+
+/* ===== Learning Journey ===== */
+.learning,
+.media,
+.contact {
+    margin: 30px;
+    border-radius: 30px;
+}
+.learning .card {
+    padding: 2rem;
+    margin: 3rem;
+}
+.learning h2 {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 2rem;
+    background: linear-gradient(45deg, var(--accent1), var(--accent2));
+    -webkit-background-clip: text;
+    color: black;
+    font-size: 40px;
+}
+.learning .card ul {
+    margin-left: 50px;
+}
+.learning .card p,
+li {
+    font-size: 18px;
+    font-weight: 500;
+}
+.learning .card {
+    /* only show heading (~3.5rem tall) */
+    max-height: 3.5rem;
+    overflow: hidden;
+    transition: max-height var(--transition) ease;
+    cursor: pointer;
+    transition: max-height 1.2s ease;
+}
+
+/* when you hover, let it grow to show everything */
+.learning .card:hover {
+    /* pick a big enough value to fit your longest card */
+    max-height: 800px;
+}
+
+/* ensure the heading stays visible */
+.learning .card h3 {
+    position: sticky;
+    top: 0;
+    background: var(--surface);
+    border-radius: 15px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    z-index: 1;
+    font-size: 20px;
+}
+/* ===== Media Gallery ===== */
+.media h2 {
+    text-align: center;
+    color: black;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.video-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.video-item {
+    padding: 1rem;
+    margin: 1rem 0;
+}
+.video-placeholder {
+    background: rgba(255, 255, 255, 0.07);
+    padding-bottom: 56.25%;
+    position: relative;
+    border-radius: 12px;
+}
+.video-placeholder::after {
+    content: "Video Placeholder";
+    color: var(--text);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* ===== Contact & Footer ===== */
+
+.contact {
+    text-align: center;
+}
+.contact h2 {
+    text-align: center;
+    color: black;
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+.contact p {
+    font-size: large;
+    font-weight: bold;
+}
+.contact a {
+    color: var(--accent1);
+    text-decoration: none;
+    font-size: large;
+}
+footer {
+    text-align: center;
+    padding: 1rem;
+}
